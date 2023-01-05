@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useFetch = () => {
-  const [todos, setTodos] = useState(null);
+  const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
