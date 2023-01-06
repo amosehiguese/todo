@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from .forms import UserRegisterForm
 
 # Create your views here.
@@ -11,7 +12,7 @@ def register(request):
             first_name = form.cleaned_data.get('first_name')
             last_name = form.cleaned_data.get('last_name')
             email = form.cleaned_data.get('email')
-            return redirect('login')
+            return redirect("login")
     else:
         form = UserRegisterForm()
     return render(request, 'accounts/sign-up.html', {'form': form})
