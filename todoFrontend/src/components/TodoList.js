@@ -13,20 +13,20 @@ const TodoApp = () => {
     if (description) {
       const todo = { description };
       let bodyStr = JSON.stringify(todo);
-      const option = {
+      const options = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: bodyStr,
       };
-      fetch(url, option)
+      fetch(url, options)
         .then((response) => {
           return response.json();
         })
-        .then((newTodos) => {
+        .then((newTodo) => {
           return setTodos((todos) => {
-            return [...todos, newTodos];
+            return [...todos, newTodo];
           });
         });
       setDescription('');

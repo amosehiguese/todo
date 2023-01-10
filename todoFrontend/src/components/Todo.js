@@ -12,8 +12,6 @@ const Todo = () => {
     console.log(newCompleted);
   };
 
-  // ==========
-
   return (
     <ul>
       {todos.map((todo) => {
