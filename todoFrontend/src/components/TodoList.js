@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useFetch } from './useFetch';
+import { useFetch } from './hooks/useFetch';
+import Todo from './Todo';
 
-const TodoList = () => {
-  const { todos, setTodos } = useFetch('/api/todos/');
+const TodoApp = () => {
+  // states
   const [description, setDescription] = useState('');
   const [completed, setCompleted] = useState();
-
-  const handleUpdate = (e) => {
-    const newCompleted = e.target.checked;
-    console.log(newCompleted);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +32,7 @@ const TodoList = () => {
       setDescription('');
     }
   };
+
   return (
     <>
       <form id='todoForm' onSubmit={handleSubmit}>
@@ -48,22 +45,9 @@ const TodoList = () => {
         />
         <button type='submit'>Todo</button>
       </form>
-      <ul>
-        {todos.map((todo) => {
-          const { id, description, completed } = todo;
-          console.log(completed);
-          return (
-            <div>
-              <li key={id}>
-                <input type='checkbox' onChange={handleUpdate} />
-                {description}
-              </li>
-            </div>
-          );
-        })}
-      </ul>
+      <Todo />
     </>
   );
 };
 
-export default TodoList;
+export default TodoApp;
