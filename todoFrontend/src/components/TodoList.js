@@ -35,7 +35,7 @@ const TodoApp = () => {
 
   return (
     <>
-      <form id='todoForm' onSubmit={handleSubmit}>
+      <form className='form' id='todoForm' onSubmit={handleSubmit}>
         <input
           type='text'
           name='description'
@@ -43,7 +43,9 @@ const TodoApp = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type='submit'>Todo</button>
+        <button className='btn' type='submit'>
+          Todo
+        </button>
       </form>
       <Todo />
     </>
