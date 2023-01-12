@@ -4,6 +4,7 @@ import { useFetch } from './hooks/useFetch';
 const Todo = () => {
   // states
   const { todos, setTodos } = useFetch('/api/todos/');
+  const [completed, setCompleted] = useState('');
 
   // functions
 
@@ -18,7 +19,7 @@ const Todo = () => {
         const { id, description, completed } = todo;
         console.log(completed);
         return (
-          <div>
+          <div key={id}>
             <li key={id}>
               <input type='checkbox' onChange={handleUpdate} />
               {description}

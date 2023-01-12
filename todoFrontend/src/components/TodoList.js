@@ -5,7 +5,6 @@ import Todo from './Todo';
 const TodoApp = () => {
   // states
   const [description, setDescription] = useState('');
-  const [completed, setCompleted] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,15 +19,7 @@ const TodoApp = () => {
         },
         body: bodyStr,
       };
-      fetch(url, options)
-        .then((response) => {
-          return response.json();
-        })
-        .then((newTodo) => {
-          return setTodos((todos) => {
-            return [...todos, newTodo];
-          });
-        });
+      fetch(url, options);
       setDescription('');
     }
   };
