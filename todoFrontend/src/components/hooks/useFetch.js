@@ -12,14 +12,13 @@ export const useFetch = (url, options) => {
       const todos = await response.json();
       setTodos(todos);
       setIsLoading(false);
-
-      useEffect(() => {
-        getTodos();
-      }, [url]);
     } catch (error) {
       setError(error);
     }
   };
+  useEffect(() => {
+    getTodos();
+  }, [url]);
 
   return { todos, setTodos, isLoading, error };
 };

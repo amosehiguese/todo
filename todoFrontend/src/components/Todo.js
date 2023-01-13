@@ -17,15 +17,7 @@ const Todo = () => {
     <ul>
       {todos.map((todo) => {
         const { id, description, completed } = todo;
-        console.log(completed);
-        return (
-          <div key={id}>
-            <li key={id}>
-              <input type='checkbox' onChange={handleUpdate} />
-              {description}
-            </li>
-          </div>
-        );
+        return <li key={id}>{description}</li>;
       })}
     </ul>
   );
