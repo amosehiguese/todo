@@ -25,7 +25,7 @@ const TodoApp = () => {
       };
       fetch(url, options)
         .then((resp) => resp.json())
-        .then((todos) => console.log(todos))
+        .then((todo) => setTodos([...todos, todo]))
         .catch((err) => console.log(err));
 
       setDescription('');
