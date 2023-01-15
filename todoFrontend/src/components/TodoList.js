@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useFetch } from './hooks/useFetch';
 import Todo from './Todo';
 
+const url = '/api/todos/';
+
 const TodoApp = () => {
   // states
+  const { todos, setTodos } = useFetch(url);
   const [description, setDescription] = useState('');
+  const [completed, setCompleted] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +42,11 @@ const TodoApp = () => {
           Todo
         </button>
       </form>
-      <Todo />
+      <ul>
+        {todos.map((todo) => {
+          return <Todo key={todo.id} {...todo} />;
+        })}
+      </ul>
     </>
   );
 };

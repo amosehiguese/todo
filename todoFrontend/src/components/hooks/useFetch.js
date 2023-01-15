@@ -1,20 +1,14 @@
 import { useState, useEffect } from 'react';
 
-export const useFetch = (url, options) => {
+export const useFetch = (url) => {
   const [todos, setTodos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getTodos = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(url, options);
-      const todos = await response.json();
-      setTodos(todos);
-      setIsLoading(false);
-    } catch (error) {
-      setError(error);
-    }
+    const response = await fetch(url);
+    const todos = await response.json();
+    setTodos(todos);
+    setIsLoading(false);
   };
   useEffect(() => {
     getTodos();
