@@ -23,7 +23,11 @@ const TodoApp = () => {
         },
         body: bodyStr,
       };
-      fetch(url, options);
+      fetch(url, options)
+        .then((resp) => resp.json())
+        .then((todos) => console.log(todos))
+        .catch((err) => console.log(err));
+
       setDescription('');
     }
   };

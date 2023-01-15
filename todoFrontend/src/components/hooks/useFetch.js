@@ -14,5 +14,5 @@ export const useFetch = (url) => {
     getTodos();
   }, [url]);
 
-  return { todos, setTodos, isLoading, error };
+  return { todos, setTodos };
 };
