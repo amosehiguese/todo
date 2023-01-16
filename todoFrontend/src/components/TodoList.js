@@ -46,11 +46,11 @@ const TodoApp = () => {
           Todo
         </button>
       </form>
-      <ul>
+      <section>
         {todos.map((todo) => {
           return <Todo key={todo.id} {...todo} />;
         })}
-      </ul>
+      </section>
     </>
   );
 };
